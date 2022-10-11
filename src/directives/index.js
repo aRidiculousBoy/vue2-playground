@@ -1,4 +1,6 @@
 
+
+
 const directives = {
   // 实现一键复制指令
   copy: {
@@ -93,6 +95,26 @@ const directives = {
     // inserted钩子表示被绑定父节点时调用
     inserted(el) {
       el.focus()
+    }
+  },
+  // 实现添加水印功能
+  watermark: {
+    bind(el,binding) {
+      const options = binding.value
+      const canvas = document.createElement('canvas')
+      const parentNode = el
+      parentNode.appendChild(canvas)
+      canvas.width = 200
+      canvas.height = 150
+      canvas.style.display = 'none'
+      const context = canvas.getContext('2d')
+      context.rotate((-20 * Math.PI) / 180)
+      context.font = options.font ? options.font : '16px Microsoft JhengHei'
+      context.fillStyle = options.textColor ? options.textColor : 'rgba(180,180,180,0.3)'
+      context.textAlign = 'left'
+      context.textBaseline = 'Middle'
+      context.fillText(options.text,canvas.width / 10,canvas.height / 2)
+      parentNode.style.backgroundImage = 'url(' + canvas.toDataURL('image/png') + ')'
     }
   }
 }

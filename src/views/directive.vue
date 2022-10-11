@@ -37,11 +37,19 @@
       {{ lazyloadBackground }}
       <i class="copyable" v-copy:value="lazyloadBackground">复制段落</i>
     </div>
+
+
+    <!-- 水印 -->
+    <div class="copy-item" style="margin-top: 224px;">
+      {{ watermarkBackground }}
+      <i class="copyable" v-copy:value="lazyloadBackground">复制段落</i>
+    </div>
+
+    <div v-watermark="{text:'wyh版权所有',textColor:'rgba(180, 180, 180, 0.4)'}" style="width: 100vw;height: 100vh">1</div>
   </div>
 </template>
 
 <script>
-import { throttle } from 'lodash'
 
 export default {
   name: 'Directive',
@@ -53,7 +61,7 @@ export default {
     const text = '需求：实现一键复制文本内容，用于鼠标右键粘贴。'
     const debounceBackground = '背景：开发中遇到的表单输入，往往会有对输入内容的限制，比如不能输入表情和特殊字符，只能输入数字或字母等。'
     const lazyloadBackground = '背景：在类电商类项目，往往存在大量的图片，如 banner 广告图，菜单导航图，美团等商家列表头图等。图片众多以及图片体积过大往往会影响页面加载速度，造成不良的用户体验，所以进行图片懒加载优化势在必行。'
-
+    const watermarkBackground = '背景：当需要给应用添加版权时使用'
     const cardList = []
 
     const ret = {
@@ -62,7 +70,8 @@ export default {
       text,
       cardList,
       debounceBackground,
-      lazyloadBackground
+      lazyloadBackground,
+      watermarkBackground
     }
     window.data = ret
     return ret
