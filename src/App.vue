@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h-directive></h-directive>
+    <v-table></v-table>
   </div>
 </template>
 
