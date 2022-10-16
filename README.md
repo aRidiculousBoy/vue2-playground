@@ -1,28 +1,23 @@
 # vue2-playground
-<<<<<<< HEAD
 vue2训练场 用来玩儿
-=======
 
-## Project setup
+### 第三方依赖安装
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 跑在开发环境下
 ```
-npm run serve
+npm run dev
 ```
 
-### Compiles and minifies for production
+### 打包构建
 ```
 npm run build
 ```
 
-### Lints and fixes files
+### 代码约束
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
->>>>>>> master

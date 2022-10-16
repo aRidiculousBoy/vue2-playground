@@ -31,8 +31,10 @@ export default {
               value: 'expired'
             }
           ],
+          // 允许多选
           multiple: true,
           method(value, row) {
+            // 单选模式下edge case
             if (!value || !value.length) {
               return true
             }
